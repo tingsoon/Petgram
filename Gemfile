@@ -70,3 +70,5 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'jquery-rails'
+
+gem 'kaminari', '~> 0.16.3'
