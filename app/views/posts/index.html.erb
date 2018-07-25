@@ -1,27 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Petgram</h1>
-<br></br>
-<div class="posts-wrapper row">
-  <% @posts.each do |post| %>
-  <div class="post">
-    <div class="post-head">
-      <div class="name">
-        <%= post.user.user_name %>
+<div class="container">
+  <h1>Petgram</h1>
+  <br></br>
+  <div class="posts-wrapper row">
+    <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="name">
+          <%= post.user.user_name %>
+      </div>
+      </div>
+      <div class="image center-block">
+        <a href="<%= post_path post%>" class="summary">
+        <%= image_tag(post.image.thumbnail.url, :class => "img-responsive") %>
+        </a>
+      </div>
+      <p class="caption">
+        <%= post.caption %>
+      </p>
+      <% if post.comments %>
+        <% post.comments.each do |comment| %>
+          <div class="comment">
+            <div class="user-name">
+              <%= comment.user.user_name %>
+            </div>
+            <div class="comment-content">
+              <%= comment.content %>
+            </div>
+            <% if comment.user == current_user %>
+              <%= link_to 'Delete comment', post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+               <span class="glyphicon glyphicon-remove delete-comment"></span>
+            <% end %>
+           </div>  
+      <% end %>
+      <% end %>
+      <div class="comment-like-form row">
+        <div class="like-button col-sm-1">
+          <span class="glyphicon glyphicon-heart-empty"></span>
+        </div>
+        <div class="comment-form col-sm-11">
+          <%= form_for [post, post.comments.new] do |form| %>
+              <%= form.text_field :content, placeholder: 'Add a comment....' %> 
+              <%= form.submit %>
+          <% end %>
+        </div>
+        <%# <%= link_to 'Show', post %>
+        <%# <%= link_to 'Edit', edit_post_path(post) %>
+        <%# <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     </div>
-    </div>
-    <div class="image center-block">
-      <a href="<%= post_path post%>" class="summary">
-      <%= image_tag(post.image.thumbnail.url, :class => "img-responsive") %>
-    </div>
-    <p class="caption">
-      <%= post.caption %>
-    </p>
-    <%= link_to 'Show', post %>
-    <%= link_to 'Edit', edit_post_path(post) %>
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 <br>
