@@ -164,3 +164,36 @@ img.bg {
     position: relative;
 
   }
+
+  #user_avatar {
+    margin: 20px auto;
+  }
+
+  .profile-header {
+    padding: 20px 0;
+  }
+  
+  #avatar-image {
+    margin-left: 60px;
+    height: 152px;
+    width: 152px;
+    border-radius: 50%;
+  }
+  
+  .user-name-and-follow {
+    display: inline;
+  }
+  
+  .profile-user-name {
+    display: inline;
+  }
+  
+  .edit-button {
+    border-color: #818488;
+    color: #818488;
+    margin-left: 20px;
+  }
+  
+  .profile-bio {
+    margin-top: 20px;
+  }
