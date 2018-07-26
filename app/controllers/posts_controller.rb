@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :owned_post, only: [:edit, :update, :destroy]
 
   # GET /posts
@@ -60,6 +60,24 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    if @post.liked_by current_user
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js { render 'posts/like' }
+      end
+    end
+  end
+
+  def unlike
+    if @post.unliked_by current_user
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js { render 'posts/unlike' }
+      end
     end
   end
 
