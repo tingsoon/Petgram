@@ -74,3 +74,5 @@ gem 'jquery-rails'
 gem 'kaminari', '~> 0.16.3'
 
 gem 'acts_as_votable', '~> 0.11.1'
+
+gem 'bootstrap', '~> 4.1.3'

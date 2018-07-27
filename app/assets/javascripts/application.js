@@ -19,3 +19,6 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
