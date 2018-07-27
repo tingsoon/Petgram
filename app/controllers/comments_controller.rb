@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
         respond_to do |format|
             if @comment.save
+                create_notification @post, @comment
                 format.html { redirect_to @post, notice: 'Comment was successfully created.' }
                 format.json { render :show, status: :created, location: @post }
                 # flash[:success] = "You commented the hell out of that post!"
@@ -19,6 +20,16 @@ class CommentsController < ApplicationController
             end
         end
     end
+
+    def create_notification(post, comment)
+    return if post.user.id == current_user.id 
+    Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        identifier: comment.id,
+                        notice_type: 'comment')
+    end
+
 
     def destroy
         @comment = @post.comments.find(params[:id])

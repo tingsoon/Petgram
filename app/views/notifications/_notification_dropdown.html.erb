@@ -1,0 +1,15 @@
+<li class="dropdown notification-dropdown"></li>
+     
+      <button type="button" class="btn btn-default dropdown-toggle" id= "dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        
+        <%=current_user.notifications.count%>
+    
+        <span class='glyphicon glyphicon-flag'>
+          <ul class='dropdown-menu'>
+            
+          </ul>
+        </span>
+          <li class='dropdown-header text-center'>Notifications
+          <%= render current_user.notifications.order ('created_at DESC').last(5)%> 
+          </li>
+          
