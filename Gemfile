@@ -67,7 +67,7 @@ gem 'cloudinary'
 
 gem 'devise'
 
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap', '~> 4.1.3'
 
 gem 'jquery-rails'
 
