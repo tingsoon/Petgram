@@ -225,3 +225,13 @@ img.bg {
     text-decoration: none;
     color: red;
   }
+
+  .notification-index-list {
+    margin-top: 5em;
+    list-style: none;
+    li {
+      margin-top: 1em;
+      background-color: white;
+      padding: 1em;
+    }
+  }

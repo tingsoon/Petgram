@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   patch ':user_name/edit', to: 'profiles#update', as: :update_profile
 
   get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
+
 end
