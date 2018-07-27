@@ -136,6 +136,13 @@ img.bg {
     flex-direction: row;
     justify-content: center;
   }
+
+  .notification-dropdown {
+    margin-top: 10px;
+    button {
+      border: none;
+    }
+  }
   
   /* ## Wrapper and styling for the new and edit views ## */
   
