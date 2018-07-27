@@ -1,20 +1,4 @@
-<p id="notice"><%= notice %></p>
-<div class = 'text-center'>
-  <p>
-    <strong>Caption:</strong>
-    <%= @post.caption %>
-  </p>
-
-  <div>
-  <%= image_tag @post.image_url.to_s, class: 'bg' %>
-  </div>
-
-  <div class="content">
-  <p>
-    <%= @post.caption %>
-  </p>
-  </div>
-</div>
+<%= render 'post', post: @post %>
 <% if @post.user.id == current_user.id %>
   <div class = 'text-center edit-links'>
     <%= link_to 'Edit', edit_post_path(@post) %> |
