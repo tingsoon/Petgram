@@ -8,10 +8,10 @@
       <div class="time-ago">
         <%= time_ago_in_words post.created_at %>
       </div>
-      </div>
+      </div> 
       <div class="image center-block">
         <a href="<%= post_path post%>" class="summary">
-        <%= image_tag(post.image.thumbnail.url, :class => "img-responsive", :size => "500x500") %>
+        <%= image_tag(post.image.thumbnail.url, :class => "img-responsive", :size => "600x600") %>
       </a>
       </div>
 
@@ -39,8 +39,8 @@
       </div>
       <div class="comment-form col-sm-11">
         <%= form_for [post, post.comments.build] do |form| %>
-        <%= form.text_field :content, placeholder: 'Add a comment....' %> 
-        <%= form.submit class: 'btn btn-primary' %>
+        <%= form.text_field :content, placeholder: 'Add a comment....' %>
+        <%= form.submit class: 'btn-primary .btn-sm' %>
         <% end %>
       </div>
       <%# <%= link_to 'Show', post %>
