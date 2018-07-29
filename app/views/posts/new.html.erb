@@ -1,7 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="newpostcontainer">
+	<p id="notice"><%= notice %></p>
 
-<h1>New Post</h1>
 
-<%= render 'newform', post: @post %>
+	<div class="text-center">
+		<br /><br /><br />
+	<h1>Create a New Post</h1>
 
-<%= link_to 'Back', posts_path %>
+	<%= render 'newform', post: @post %>
+
+	<%= link_to 'Back', posts_path, class: "btn btn-primary" %>
+	</div>
+</div>

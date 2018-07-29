@@ -23,13 +23,12 @@
           
           <div class="container-fluid">
             <div class="form-group text-center">
-            <h4>Upload an image: </h4>
-              <%= form.label :image %><br>
+            <h4>Upload Image </h4>
               <%= form.file_field :image %>
             </div>
 
             <div class="form-group text-center">
-              <%= form.label :caption %>
+              <h4>Caption:</h4>
               <%= form.text_area :caption %>
             </div>
 
@@ -43,3 +42,4 @@
     </div>
   </div>
 <% end %>
+
