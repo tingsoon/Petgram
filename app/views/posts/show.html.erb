@@ -1,27 +1,25 @@
-<p id="notice"><%= notice %></p>
-<div class = 'text-center'>
-  <p>
-    <strong>Caption:</strong>
-    <%= @post.caption %>
-  </p>
+<div class="showcontainer">
+  <p id="notice"><%= notice %></p>
+  <div class = 'text-center'>
 
-  <div>
-  <%= image_tag @post.image_url.to_s, class: 'bg' %>
-  </div>
+  <br /><br />
+    <div>
+    <%= image_tag @post.image_url.to_s, :size => "500x500" %>
+    </div>
 
-  <div class="content">
-  <p>
-    <%= @post.caption %>
-  </p>
+    <div class="content"><br />
+      <strong>Caption:</strong>
+      <%= @post.caption %>
+    </div>
   </div>
+  <% if @post.user.id == current_user.id %>
+    <div class = 'text-center edit-links'>
+      <%= link_to 'Edit', edit_post_path(@post) %>  |
+      <%= link_to 'Back', posts_path %>
+    </div>
+  <% else %>
+    <div class = 'text-center edit-links'>
+      <%= link_to 'Back', posts_path %>
+    </div>
+  <% end %>
 </div>
-<% if @post.user.id == current_user.id %>
-  <div class = 'text-center edit-links'>
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path %>
-  </div>
-<% else %>
-  <div class = 'text-center edit-links'>
-    <%= link_to 'Back', posts_path %>
-  </div>
-<% end %>
