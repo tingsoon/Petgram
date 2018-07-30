@@ -6,6 +6,38 @@
 
        <div class="navbar-header">
         <%= link_to image_tag("petgramlogo.png", :size => "165x30"), root_path %>
+
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li>
+            <%= render 'notifications/notification_dropdown' %>
+          </li>
+          <li>
+            <%= link_to current_user.user_name, profile_path(current_user.user_name) %>
+          </li>  
+          <li>
+            <%= link_to "New Post", new_post_path %>
+          </li>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Login", new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to "Register", new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+=======
        </div>
 
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -37,3 +69,4 @@
        </div><!--/.nav-collapse -->
      </div>
    </nav>
+

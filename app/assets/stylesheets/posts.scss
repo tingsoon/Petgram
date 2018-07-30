@@ -240,8 +240,16 @@ img.bg {
     justify-content: center;
   }
 
-  // Button customization
 
+  .notification-dropdown {
+    margin-top: 10px;
+    button {
+      border: none;
+    }
+  }
+  
+=======
+  // Button customization
   /* ## Wrapper and styling for the new and edit views ## */
   
   .form-wrapper {
@@ -348,4 +356,14 @@ img.bg {
   .like-button a:hover, a:focus {
     text-decoration: none;
     color: red;
+  }
+
+  .notification-index-list {
+    margin-top: 5em;
+    list-style: none;
+    li {
+      margin-top: 1em;
+      background-color: white;
+      padding: 1em;
+    }
   }
