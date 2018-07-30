@@ -16,7 +16,7 @@
       <div class="post-body">
         <div class="image-wrap">
           <div class="text-center">
-          <%= image_tag @post.image_url.to_s, id: 'image-preview', class: 'img-responsive' %>
+          <%= image_tag @post.image_url.to_s, id: 'image-preview', :size => "400x400" %>
           </div>
  
             <div class="row">
@@ -24,13 +24,12 @@
           
             <div class="container-fluid">
               <div class="form-group text-center">
-              <h4>Upload an image (this is required)</h4>
-                <%= form.label :image %><br>
+              <br><h4>Upload an image (This Is Required)</h4><br>
                 <%= form.file_field :image %>
               </div>
 
               <div class="form-group text-center">
-                <%= form.label :caption %>
+                <h4>Caption:</h4>
                 <%= form.text_area :caption %>
               </div>
 
